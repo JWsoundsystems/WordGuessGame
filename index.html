@@ -53,7 +53,7 @@
 
 
 // 1. An array of words 
-var wordArray = ["groovy", "funky", "soul", "disco", "love"];
+var wordArray = ["groovy", "funk", "cool", "cherry", "soul"];
 // 2. variable of valid letter guesses
 var letterGuess = "abcdefghijklmnopqrstuvwxyz";
 // 3. Lives remaining
@@ -104,9 +104,18 @@ document.onkeyup = function() {
                     wrongGuesses.push(userGuess);
                 } 
 
-                if ((letterGuess.indexOf(userGuess) == 0)) {
+                if ((letterGuess.indexOf(userGuess) === -1)) {
                   document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> ${livesLeft}</span>`;
-                  alert("Game Over!");
+                  
+        
+                }
+
+                if (blankSpaces.indexOf("_") < 0) {
+                  document.getElementById("blankspaces").innerHTML = `<span class="p">You Win!</span>`;
+                }
+
+                if (livesLeft <= 0) {
+                  document.getElementById("blankspaces").innerHTML = `<span class="p">You Lose!</span>`;
                 }
                 
             }
@@ -115,7 +124,7 @@ document.onkeyup = function() {
               
 
 
-            //}
+            
 
               
 
