@@ -23,8 +23,13 @@
 
 #pic {
     position: relative;
-    top: 50px;
-    right: 30px;
+    top: 35px;
+    right: 100px;
+    border: honeydew;
+    border-style: dashed;
+    text-align: center;
+    height: 100%;
+    width: 80px;
 }
 
 #train {
@@ -35,7 +40,7 @@
 #train2 {
     position: relative;
     height: 400px;
-    left: 80px;
+    left: 168px;
 }
 
 #content {
