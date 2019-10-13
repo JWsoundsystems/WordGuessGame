@@ -27,16 +27,19 @@
               <div class="col-lg" class="col-md" class="col-sm" style="height: 100%" style="width: 100%" id="train">
                 <img src="https://m.media-amazon.com/images/M/MV5BMmJiNmY3MTYtMzE2Mi00ZGIwLTg1YmItYmJjZWNlYTBhY2Y3XkEyXkFqcGdeQXVyODQ1NTk5OQ@@._V1_UY1200_CR108,0,630,1200_AL_.jpg" class="img-fluid" alt="Responsive image" style="max-width: 100%" id="train"> 
               </div>
-              <div class="col-lg" class="col-md" class="col-sm" class="border border-dark" id="pic" style="height: 100%">
-                    <img src="https://i.pinimg.com/originals/8c/ba/d2/8cbad2355835bbe80c7801a3b18ccad1.jpg" class="img-fluid" alt="Responsive image" style="max-width: 80%"> 
+              <div class="col-lg" class="col-md" class="col-sm" class="border border-dark"  style="height: 100%">
+                    <img src="https://i.pinimg.com/originals/8c/ba/d2/8cbad2355835bbe80c7801a3b18ccad1.jpg" id="pic" class="img-fluid" alt="Responsive image" style="max-width: 80%" id="pic1">
+   
               </div>
               <div class="col-lg" class="col-md" class="col-sm" class="border border-dark" style="height: 100%" id="content">
                     <p class="text-justify1"><br>Press any key to get started!<br><br>Guess the Word and Win!<br><br><br>Current Word:</p><br>
                     <p id="blankspaces" class="text-justify1"></p>
                     <br></br>
-                    <p id="guesses">Number of Guesses Remaining:</p>
+                    <p class="text-justify1" id="guesses">Number of Guesses Remaining:</p>
                     <p id="wrongGuess" class="text-justify1"></p>
                     <br>
+                    <br>
+                    <p class="text-justify1" id="guessing"></p>
                     <br>
                     <br>
 
@@ -109,12 +112,15 @@ document.onkeyup = function() {
 
                 if ((letterGuess.indexOf(userGuess) === -1)) {
                   document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> ${livesLeft}</span>`;
-                  
-        
                 }
 
-                if (blankSpaces.indexOf("_") < 0) {
+                if (blankSpaces.indexOf("_") <= -1) {
                   document.getElementById("wrongGuess").innerHTML = `<span class="p">You Win!</span>`;
+                  document.getElementById("guessing").innerHTML = `<span class="p">Please Refresh the Page to Play Again!</span>`;
+                }
+
+                if (livesLeft <= -1) {
+                  document.getElementById("guessing").innerHTML = `<span class="p">Please Refresh the Page to Play Again!</span>`;
                 }
 
                 if (livesLeft <= 0) {
@@ -122,20 +128,18 @@ document.onkeyup = function() {
 
                 }
 
-                if (livesLeft <= -1) {
-                  alert("Please Refresh the Page to Play Again!");
+                if (blankSpaces.indexOf(wordArray) = -1) {
+                  livesLeft === livesLeft--;
+                  document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> ${livesLeft}</span>`;
                 }
 
-                if (blankSpaces.indexOf(wordArray) = -1) {
+                if (userGuess.indexOf(word));
                   document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> ${livesLeft}</span>`;
                     livesLeft === livesLeft--;
-                }
 
 
-                
-            }
-                      
-              
+
+}    
               
 
 
