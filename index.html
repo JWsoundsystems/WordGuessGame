@@ -24,14 +24,14 @@
 
     <div class="container-fluid">
             <div class="row">
-              <div class="col-lg" style="height: 100%" style="width: 100%">
-                <img src="https://m.media-amazon.com/images/M/MV5BMmJiNmY3MTYtMzE2Mi00ZGIwLTg1YmItYmJjZWNlYTBhY2Y3XkEyXkFqcGdeQXVyODQ1NTk5OQ@@._V1_UY1200_CR108,0,630,1200_AL_.jpg" class="img-fluid" alt="Responsive image" style="max-width: 100%"> 
+              <div class="col-lg" style="height: 100%" style="width: 100%" id="train">
+                <img src="https://m.media-amazon.com/images/M/MV5BMmJiNmY3MTYtMzE2Mi00ZGIwLTg1YmItYmJjZWNlYTBhY2Y3XkEyXkFqcGdeQXVyODQ1NTk5OQ@@._V1_UY1200_CR108,0,630,1200_AL_.jpg" class="img-fluid" alt="Responsive image" style="max-width: 100%" id="train"> 
               </div>
-              <div class="col-lg" class="border border-dark" style="height: 100%">
-                    <img src="https://i.pinimg.com/originals/8c/ba/d2/8cbad2355835bbe80c7801a3b18ccad1.jpg" class="img-fluid" alt="Responsive image" style="max-width: 100%"> 
+              <div class="col-lg" class="border border-dark" id="pic" style="height: 100%">
+                    <img src="https://i.pinimg.com/originals/8c/ba/d2/8cbad2355835bbe80c7801a3b18ccad1.jpg" class="img-fluid" alt="Responsive image" style="max-width: 80%"> 
               </div>
-              <div class="col-lg" class="border border-dark" style="height: 100%">
-                    <p class="text-justify1"><br><br>Press any key to get started!<br><br>Guess the Word and Win!<br><br><br>Current Word:</p><br>
+              <div class="col-lg" class="border border-dark" style="height: 100%" id="content">
+                    <p class="text-justify1">Press any key to get started!<br><br>Guess the Word and Win!<br><br><br>Current Word:</p><br>
                     <p id="blankspaces" class="text-justify1"></p>
                     <br></br>
                     <p id="guesses">Number of Guesses Remaining:</p>
@@ -39,8 +39,8 @@
 
     
               </div>
-                <div class="col-lg" style="height: 100%">
-                  <img src="https://m.media-amazon.com/images/M/MV5BMmJiNmY3MTYtMzE2Mi00ZGIwLTg1YmItYmJjZWNlYTBhY2Y3XkEyXkFqcGdeQXVyODQ1NTk5OQ@@._V1_UY1200_CR108,0,630,1200_AL_.jpg" class="img-fluid" alt="Responsive image" style="max-width: 100%"> 
+              <div class="col-lg" style="height: 100%" >
+              <img src="https://m.media-amazon.com/images/M/MV5BMmJiNmY3MTYtMzE2Mi00ZGIwLTg1YmItYmJjZWNlYTBhY2Y3XkEyXkFqcGdeQXVyODQ1NTk5OQ@@._V1_UY1200_CR108,0,630,1200_AL_.jpg" class="img-fluid" alt="Responsive image" style="max-width: 100%" id="train2"> 
                   
                 </div>
             </div>
@@ -57,7 +57,7 @@ var wordArray = ["groovy", "funk", "cool", "cherry", "soul"];
 // 2. variable of valid letter guesses
 var letterGuess = "abcdefghijklmnopqrstuvwxyz";
 // 3. Lives remaining
-var livesLeft = 5;
+var livesLeft = 6;
 // 4. Length of Remaining word
 // 5. show blank spaces for each letter of word
 var blankSpaces = [];
@@ -80,7 +80,7 @@ for (var index = 0; index < word.length; index++) {
 document.getElementById("blankspaces").innerHTML = `<span class="text-justify1"> ${blankSpaces}</span>`
 
 //var remainingLetters = word.length --;
-document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> ${blankSpaces}</span>`
+document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> ${livesLeft}</span>`
 
 
 //listen for key presses                  
@@ -116,6 +116,7 @@ document.onkeyup = function() {
 
                 if (livesLeft <= 0) {
                   document.getElementById("blankspaces").innerHTML = `<span class="p">You Lose!</span>`;
+
                 }
                 
             }
