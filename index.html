@@ -33,6 +33,7 @@
               </div>
               <div class="col-lg" class="col-md" class="col-sm" class="border border-dark" style="height: 100%" id="content">
                     <p class="text-justify1"><br>Press any key to get started!<br><br>Guess the Word and Win!<br><br><br>Current Word:</p><br>
+                    <audio class="audio"></audio>
                     <p id="blankspaces" class="text-justify1"></p>
                     <br></br>
                     <p class="text-justify1" id="guesses">Number of Guesses Remaining:</p>
@@ -41,9 +42,7 @@
                     <br>
                     <p class="text-justify1" id="guessing"></p>
                     <br>
-                    <br>
-
-    
+          
               </div>
               <div class="col-lg" class="col-md" class="col-sm" style="height: 100%" >
               <img src="https://m.media-amazon.com/images/M/MV5BMmJiNmY3MTYtMzE2Mi00ZGIwLTg1YmItYmJjZWNlYTBhY2Y3XkEyXkFqcGdeQXVyODQ1NTk5OQ@@._V1_UY1200_CR108,0,630,1200_AL_.jpg" class="img-fluid" alt="Responsive image" style="max-width: 100%" id="train2"> 
@@ -117,6 +116,7 @@ document.onkeyup = function() {
                 if (blankSpaces.indexOf("_") <= -1) {
                   document.getElementById("wrongGuess").innerHTML = `<span class="p">You Win!</span>`;
                   document.getElementById("guessing").innerHTML = `<span class="p">Please Refresh the Page to Play Again!</span>`;
+                  document.getElementById("blankspaces").innerHTML = `<span class="text-justifu1"> ${word}</span>`;
                 }
 
                 if (livesLeft <= -1) {
