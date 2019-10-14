@@ -5,15 +5,16 @@
     left: 210px;  
 }
 
+
 .text-justify1 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
     font-size: large;
-    font-style: inherit;
+    color: #eeeeee;
 }
 
 .container-fluid {
-   background-color: #933131
+   background-color: black 
 }
 
 #guesses {
@@ -24,8 +25,8 @@
 
 #pic {
     position: relative;
-    top: 35px;
-    right: 50px;
+    top: 25px;
+    right: 90px;
     border: honeydew;
     border-style: dashed;
     text-align: center;

@@ -68,6 +68,7 @@ var livesLeft = 5;
 var blankSpaces = [];
 // 6. Array for wrong guesses;
 var wrongGuesses = [];
+//
 
 
 // initialize game - select word from word array, 
@@ -89,7 +90,7 @@ document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> 
 
 
 //listen for key presses                  
-document.onkeyup = function() {
+document.onkeydown = function() {
                 var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
                 console.log(userGuess);
                 document.getElementById("blankspaces").innerText = blankSpaces.join();
@@ -116,29 +117,33 @@ document.onkeyup = function() {
                 if (blankSpaces.indexOf("_") <= -1) {
                   document.getElementById("wrongGuess").innerHTML = `<span class="p">You Win!</span>`;
                   document.getElementById("guessing").innerHTML = `<span class="p">Please Refresh the Page to Play Again!</span>`;
-                  document.getElementById("blankspaces").innerHTML = `<span class="text-justifu1"> ${word}</span>`;
+                  document.getElementById("blankspaces").innerHTML = `<span class="text-justify1"> ${word}</span>`;
                 }
-
-                if (livesLeft <= -1) {
-                  document.getElementById("guessing").innerHTML = `<span class="p">Please Refresh the Page to Play Again!</span>`;
-                  alert("Please Refresh the Page to Play Again!");
-                }
-
+                
                 if (livesLeft <= 0) {
                   document.getElementById("blankspaces").innerHTML = `<span class="p">You Lose!</span>`;
+                  document.getElementById("guessing").innerHTML = `<span class="p">Please Refresh the Page to Play Again!</span>`;
 
                 }
+              
+                if (livesLeft <= -1) {
+                  alert("Please Refresh the Page to Play Again!");
+                }
+                
 
                 if (blankSpaces.indexOf(wordArray) = -1) {
                   livesLeft === livesLeft--;
                   document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> ${livesLeft}</span>`;
                 }
 
+                if ((userGuess) !== (wordArray)) {
+                  livesLeft--;
+                  document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> ${livesLeft}</span>`;
+                }
+
                 if (userGuess.indexOf(word));
                   document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> ${livesLeft}</span>`;
                     livesLeft === livesLeft--;
-
-
 
 }    
               
