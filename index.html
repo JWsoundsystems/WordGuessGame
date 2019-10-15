@@ -112,7 +112,7 @@ document.onkeydown = function() {
                 }
 
              //space for wrong letter guesses 
-                if (word.indexOf(userGuess) > -1) {
+                if (word.indexOf(userGuess) !== word) {
                     wrongGuesses.push(userGuess);
                     document.getElementById("wrongletter").innerText = wrongGuesses.join();
                     livesLeft === livesLeft--;
@@ -142,7 +142,6 @@ document.onkeydown = function() {
                 if (livesLeft <= -1) {
                   alert("Please Refresh the Page to Play Again!");
                 }
-                
 
                 if (blankSpaces.indexOf(wordArray) = -1) {
                   livesLeft === livesLeft--;
