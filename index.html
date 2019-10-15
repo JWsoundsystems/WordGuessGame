@@ -31,7 +31,7 @@
                     <img src="https://i.pinimg.com/originals/8c/ba/d2/8cbad2355835bbe80c7801a3b18ccad1.jpg" id="pic" class="img-fluid" alt="Responsive image" style="max-width: 80%" id="pic1">
    
               </div>
-              <div class="col-lg" class="col-md" class="col-sm" class="border border-dark" style="height: 100%" id="content">
+              <div class="col-lg" class="col-md" class="col-sm" class="border border-dark" id="content">
                     <p class="text-justify1"><br>Press any key to get started!<br><br>Guess the Word and Win!<br><br><br>Current Word:</p><br>
                     <audio class="audio"></audio>
                     <p id="blankspaces" class="text-justify1"></p>
@@ -40,8 +40,11 @@
                     <p id="wrongGuess" class="text-justify1"></p>
                     <br>
                     <br>
-                    <p class="text-justify1" id="guessing"></p>
+                    <p class="text-justify1" id="wrong">Wrong Guesses:</p>
+                    <p class="text-justify1" id="wrongletter"></p>
                     <br>
+                    <br>
+                    <p class="text-justify1" id="guessing"></p>
           
               </div>
               <div class="col-lg" class="col-md" class="col-sm" style="height: 100%" >
@@ -58,11 +61,11 @@
 
 
 // 1. An array of words 
-var wordArray = ["groovy", "funk", "cool", "cherry", "soul"];
+var wordArray = ["groovy", "funk", "cool", "cherry", "soul", "dance", "music", "disco"];
 // 2. variable of valid letter guesses
 var letterGuess = "abcdefghijklmnopqrstuvwxyz";
 // 3. Lives remaining
-var livesLeft = 5;
+var livesLeft = 10;
 // 4. Length of Remaining word
 // 5. show blank spaces for each letter of word
 var blankSpaces = [];
@@ -80,13 +83,15 @@ console.log(wordArray);
 
 for (var index = 0; index < word.length; index++) {
     blankSpaces[index] = "_";
-}
+};
+
 
 
 document.getElementById("blankspaces").innerHTML = `<span class="text-justify1"> ${blankSpaces}</span>`
 
 //var remainingLetters = word.length --;
 document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> ${livesLeft}</span>`
+
 
 
 //listen for key presses                  
@@ -102,16 +107,24 @@ document.onkeydown = function() {
                         if (word[index] === userGuess){
                             blankSpaces[index] = userGuess;
                         };
+                       
                     }
-             //space for wrong letter guesses 
-                } else {
-                    document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> ${livesLeft}</span>`;
-                    livesLeft === livesLeft--;
-                    wrongGuesses.push(userGuess);
-                } 
+                }
 
-                if ((letterGuess.indexOf(userGuess) === -1)) {
+             //space for wrong letter guesses 
+                if (word.indexOf(userGuess) > -1) {
+                    wrongGuesses.push(userGuess);
+                    document.getElementById("wrongletter").innerText = wrongGuesses.join();
+                    livesLeft === livesLeft--;
+                    document.getElementById("wrongletter").innerHTML = `<span class="text-justify1"> ${wrongGuesses}</span>`;
+                    
+                  
+                }
+
+                if ((userGuess.indexOf(blankSpaces) === -1)) {
+                  word[index] !== userGuess;
                   document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> ${livesLeft}</span>`;
+                  // wrongGuesses[index] = userGuess; 
                 }
 
                 if (blankSpaces.indexOf("_") <= -1) {
@@ -141,35 +154,9 @@ document.onkeydown = function() {
                   document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> ${livesLeft}</span>`;
                 }
 
-                if (userGuess.indexOf(word));
-                  document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> ${livesLeft}</span>`;
-                    livesLeft === livesLeft--;
-
 }    
-              
 
-
-            
-
-              
-
-// alert(blankSpaces.join("_"));
-// alert("Good job! The answer was " + word);
-
-//if userGuess does not equal letterGuess then make userGuess null
-  
-//if letterGuess does not equal word.length then livesLeft===livesLeft--
-
-
-//when lives = 0, display Game Over, and display rick roll image and song
-              
-                
-//when player completes word, display winner image and song  
-
-
-
-
-
+document.getElementById("wrongletter").innerHTML = `<span class="text-justify1"> ${wrongGuesses}</span>`
             
             
         </script>   
