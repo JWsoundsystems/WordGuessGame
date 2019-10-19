@@ -99,7 +99,7 @@ document.onkeydown = function() {
                 var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
                 console.log(userGuess);
                 document.getElementById("blankspaces").innerText = blankSpaces.join();
-               
+        
                 // check to make sure key press is valid letter
                 if (letterGuess.indexOf(userGuess) > -1) {
             // if letter is in the word, letter is revealed in blank word board
