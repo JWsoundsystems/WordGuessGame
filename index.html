@@ -106,9 +106,12 @@ document.onkeydown = function() {
                     for (let index = 0; index < word.length; index++) {
                         if (word[index] === userGuess){
                             blankSpaces[index] = userGuess;
+                            document.getElementById("blankspaces").innerHTML = `<span class="text-justify1"> ${blankSpaces}</span>`
+                            document.getElementById("blankspaces").innerHTML = `<span class="text-justify1"> ${blankSpaces}</span>`
                         }
                     }
                 }
+
 
              //space for wrong letter guesses 
                 if (word.indexOf(userGuess) !== word) {
@@ -151,8 +154,8 @@ document.onkeydown = function() {
                   document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> ${livesLeft}</span>`;
                 }
 
-                document.getElementById("wrongletter").innerHTML = `<span class="text-justify1"> ${wrongGuesses}</span>`
-}    
+                document.getElementById("wrongletter").innerHTML = `<span class="text-justify1"> ${wrongGuesses}</span>`   
+              }
 
             
             
