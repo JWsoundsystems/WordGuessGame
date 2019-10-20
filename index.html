@@ -98,7 +98,6 @@ document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> 
 document.onkeydown = function() {
                 var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
                 console.log(userGuess);
-                document.getElementById("blankspaces").innerText = blankSpaces.join();
         
                 // check to make sure key press is valid letter
                 if (letterGuess.indexOf(userGuess) > -1) {
@@ -107,19 +106,20 @@ document.onkeydown = function() {
                         if (word[index] === userGuess){
                             blankSpaces[index] = userGuess;
                             document.getElementById("blankspaces").innerHTML = `<span class="text-justify1"> ${blankSpaces}</span>`
-                            document.getElementById("blankspaces").innerHTML = `<span class="text-justify1"> ${blankSpaces}</span>`
+                          
                         }
                     }
                 }
 
 
              //space for wrong letter guesses 
-                if (word.indexOf(userGuess) !== word) {
+                
+                if (word.indexOf(userGuess) === word.indexOf(wordArray)) {
                   wrongGuesses.push(userGuess);
                   document.getElementById("wrongletter").innerText = wrongGuesses.join();
-                  document.getElementById("wrongletter").innerHTML = `<span class="text-justify1"> ${wrongGuesses}</span>`;
-                  livesLeft === livesLeft--;
+                  livesLeft--;
                 }
+                
 
                 if ((userGuess.indexOf(blankSpaces) === -1)) {
                   document.getElementById("wrongGuess").innerHTML = `<span class="text-justify1"> ${livesLeft}</span>`;
@@ -156,6 +156,7 @@ document.onkeydown = function() {
 
                 document.getElementById("wrongletter").innerHTML = `<span class="text-justify1"> ${wrongGuesses}</span>`   
               }
+              
 
             
             
